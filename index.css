@@ -1,0 +1,134 @@
+/* CSS RESET */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --fs-heading1: 3rem;
+  --fs-heading2: 1.125rem;
+  --fs-intro: 1.125rem;
+  --fs-nav: var(--fs-100);
+  --fs-body: 16px;
+
+  --fw-400: 400;
+  --fw-700: 700;
+
+  --clr-primary: #fff;
+  --clr-secondary: #000000;
+  --clr-accent: #f2f593;
+  --clr-neutral: #404040;
+
+  --ff-project: "Trebuchet";
+}
+
+body {
+  margin: 0;
+  font-family: var(--ff-project);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--clr-secondary);
+}
+
+.bg-accent {
+  background-color: var(--clr-accent);
+}
+
+.bg-primary {
+  background-color: var(--clr-primary);
+}
+
+.bg-neutral {
+  background-color: var(--clr-neutral);
+}
+
+.text-primary {
+  color: var(--clr-primary);
+}
+
+.text-accent {
+  color: var(--clr-accent);
+}
+
+.text-secondary {
+  color: var(--clr-secondary);
+}
+
+.text-neutral {
+  color: var(--clr-neutral);
+}
+
+.font-weight-regular {
+  font-weight: var(--fw-400);
+}
+
+.font-weight-bold {
+  font-weight: var(--fw-700);
+}
+
+.heading1 {
+  --fs-100: 0.925rem;
+  font-size: var(--fs-heading1);
+}
+
+/* 
+    -------------
+    General Layout
+    
+    1. Taking 3 grid cols since mobile-focused is followed. For desktop 5 cols will be there.
+
+    --------------------
+*/
+
+.main-grid {
+  display: grid;
+  grid-template-columns: minmax(1em, 1fr) 500px minmax(1em, 1fr);
+  column-gap: 2em;
+  /* grid-column-gap is obsolete so using column-gap */
+  grid-column: 2/-2;
+}
+
+@media (min-width: 600px) {
+  .main-grid {
+    grid-template-columns: minmax(1em, 1fr) repeat(3, minmax(150px, 350px)) minmax(
+        1em,
+        1fr
+      );
+  }
+}
+
+/* 
+    ------------------
+        Footer
+    -------------------
+*/
+
+.footer {
+  padding: 4em 0;
+  text-align: center;
+  grid-template-areas:
+    ". social ."
+    ". main .";
+}
+
+.footer-main {
+  grid-area: main;
+}
+
+.social-list {
+  grid-area: social;
+}
+
+.footer-main,
+.social-list {
+  grid-column: 2/-2;
+}
+
+@media (min-width: 600px) {
+  .footer {
+    grid-template-areas: ". main main social .";
+    background-color: red;
+  }
+}
