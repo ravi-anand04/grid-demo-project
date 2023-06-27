@@ -31,6 +31,8 @@ body {
   font-size: var(--fs-body);
   line-height: 1.6;
   color: var(--clr-secondary);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .bg-accent {
@@ -111,8 +113,6 @@ body {
   grid-template-areas:
     ". social ."
     ". main .";
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif09;
 }
 
 .footer-main {
@@ -145,14 +145,16 @@ Info
 -------------------
 */
 
-/* .info-col {
-  grid-column: 2/-2;
-} */
-
 .info-col {
-  grid-column: span 1;
+  grid-column: 2/-2;
 }
 
-.info-col:first-child {
-  grid-column: 2/span 1;
+@media (min-width: 600px) {
+  .info-col {
+    grid-column: span 1;
+  }
+
+  .info-col:first-child {
+    grid-column: 2 / span 1;
+  }
 }
